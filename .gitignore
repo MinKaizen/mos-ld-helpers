@@ -1,0 +1,6 @@
+*.log
+dist
+node_modules
+/vendor
+.rcloneignore
+rclone-config.sh
