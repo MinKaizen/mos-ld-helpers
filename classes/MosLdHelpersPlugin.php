@@ -25,6 +25,7 @@ class MosLdHelpersPlugin {
 
   private function register_shortcodes() {
     add_shortcode( 'mos_ld_progress', [$this, 'mos_ld_progress_shortcode']);
+    add_shortcode( 'mos_ld_mark_complete', [$this, 'mos_ld_mark_complete_shortcode']);
   }
 
 
@@ -75,4 +76,29 @@ class MosLdHelpersPlugin {
     return $course_progress;
   }
 
+
+  /**
+   * Shortcode to display Mark Complete button
+   *
+   * @param string $class                   custom class name for button
+   * @param string $id                      custom id for button
+   * @return string $mark_complete_button   html to output Mark Complete button
+   */
+  public function mos_ld_mark_complete_shortcode( $passed_atts ) {
+    $atts = shortcode_atts( [
+      'class' => 'ld-mark-complete',
+      'id' => 'ld-mark-complete',
+    ], $passed_atts);
+
+    $options = [
+      'button' => [
+        'class' => $atts['class'],
+        'id' => $atts['id'],
+      ],
+    ];
+
+    $mark_complete_button = learndash_mark_complete(get_post(), $options); 
+
+    return $mark_complete_button;
+  }
 }
