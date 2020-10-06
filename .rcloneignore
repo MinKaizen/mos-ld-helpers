@@ -1,0 +1,16 @@
+.*
+.*/
+.*/**
+
+node_modules/
+node_modules/**
+
+composer.json
+composer.lock
+
+package.json
+package-lock.json
+
+webpack.config.js
+
+rclone-config.sh
